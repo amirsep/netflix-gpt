@@ -11,7 +11,6 @@ const useTopRatedTv = () => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log(json);
 
     dispatch(addTopRatedTv(json.results));
   };

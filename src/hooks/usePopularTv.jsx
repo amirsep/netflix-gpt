@@ -11,7 +11,6 @@ const usePopularTv = () => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log(json);
 
     dispatch(addPopularTv(json.results));
   };

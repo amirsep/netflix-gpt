@@ -5,7 +5,6 @@ import TvList from "./TvList";
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
   const tv = useSelector((store) => store.tv);
-  console.log(tv);
 
   return (
     <div className="bg-black">
