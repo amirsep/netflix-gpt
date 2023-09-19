@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { addTopRatedTv } from "../utils/tvSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useTopRatedTv = () => {
+  // memoization
+  const topRatedTv = useSelector((store) => store.movies.topRatedTv);
+
   const dispatch = useDispatch();
   const getTopRatedTv = async () => {
     const data = await fetch(
@@ -16,7 +19,8 @@ const useTopRatedTv = () => {
   };
 
   useEffect(() => {
-    getTopRatedTv();
+    // memoization
+    !topRatedTv && getTopRatedTv();
   }, []);
 };
 

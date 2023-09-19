@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopularTv } from "../utils/tvSlice";
 
 const usePopularTv = () => {
+  // memoization
+  const popularTv = useSelector((store) => store.movies.popularTv);
   const dispatch = useDispatch();
   const getPopularTv = async () => {
     const data = await fetch(
@@ -16,7 +18,8 @@ const usePopularTv = () => {
   };
 
   useEffect(() => {
-    getPopularTv();
+    // memoization
+    !popularTv && getPopularTv();
   }, []);
 };
 
