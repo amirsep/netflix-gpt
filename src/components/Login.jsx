@@ -91,13 +91,17 @@ const Login = () => {
     <>
       <Header />
       <div className="absolute">
-        <img src={BG_URL} alt="logo" />
+        <img
+          className="h-screen object-cover md:h-fit "
+          src={BG_URL}
+          alt="logo"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-3/12 p-12 bg-black bg-opacity-80 my-36 mx-auto right-0 left-0 text-white"
+        className="absolute text-center md:text-start w-full md:w-3/12 p-16 md:p-10 bg-black bg-opacity-80 my-28 md:my-36 mx-auto right-0 left-0 text-white"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-xl md:text-3xl md:py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -105,25 +109,25 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full rounded-md bg-gray-800 "
+            className="p-4 my-2 md:p-4 md:my-4 md:w-full rounded-md bg-gray-800 "
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email or Phone Number"
-          className="p-4 my-4 w-full rounded-md bg-gray-800 "
+          className="p-4 my-2 md:p-4 md:my-4 md:w-full rounded-md bg-gray-800 "
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full rounded-md bg-gray-800"
+          className="p-4 my-2 md:p-4 md:my-4 md:w-full rounded-md bg-gray-800"
         />
         <p className="text-yellow-400 py-2">{errorMessage}</p>
 
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-md font-bold "
+          className="p-4 my-4 md:p-4 md:my-6 bg-red-800 w-52 md:w-full rounded-md font-bold"
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
