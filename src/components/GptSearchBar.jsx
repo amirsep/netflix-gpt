@@ -23,7 +23,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
+    // console.log(searchText.current.value);
     // Make an API call to GPT API and get Movie Results
 
     const gptQuery =
